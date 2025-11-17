@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:21:40 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/17 17:23:40 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/11/17 18:54:24 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 int	ft_printf(const char *format, ...);
 
 /* core */
-int	ft_vprintf(const char *format, va_list ap);
-int	ft_dispatch(char spec, va_list ap);
+int	ft_printf_arg(const char *format, va_list arg);
+int	ft_dispatch(char spec, va_list arg);
 
 /* printers */
 int	ft_print_char(int c);
