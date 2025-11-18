@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:21:40 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/17 18:54:24 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/11/18 16:42:45 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
 # include "libft.h"
 
 int	ft_printf(const char *format, ...);
 
-/* core */
-int	ft_printf_arg(const char *format, va_list arg);
-int	ft_dispatch(char spec, va_list arg);
+/* motor */
+int	ft_vprintf(const char *format, va_list arg);
+int	ft_dispatch(char specific, va_list arg);
 
 /* printers */
-int	ft_print_char(int c);
-int	ft_print_str(char *s);
+int	ft_print_char(int c);							// %c
+int	ft_print_str(char *s);							// %s
 int	ft_print_nbr(int n);							// %d %i
 int	ft_print_unbr(unsigned int n);					// %u
 int	ft_print_hex(unsigned int n, int uppercase);	// %x %X
