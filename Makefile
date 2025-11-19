@@ -5,7 +5,6 @@ AR      = ar rcs
 RM      = rm -f
 
 SRCS    = src/ft_printf.c \
-          src/ft_dispatch.c \
           src/ft_print_char.c \
           src/ft_print_hex.c \
           src/ft_print_nbr.c \

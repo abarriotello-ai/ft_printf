@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 13:50:37 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/18 17:38:37 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/11/19 02:37:30 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_putnbr_count(long n)
 	if (n < 0)
 	{
 		count += ft_putchar_count('-');
-		n -= n;
+		n = -n;
 	}
 	if (n > 9)
 		count += ft_putnbr_count(n / 10);

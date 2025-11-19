@@ -6,17 +6,40 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:41:50 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/18 17:32:01 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/11/19 02:26:56 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_vprintf(const char *format, va_list arg)
+static int	ft_dispatch(char specific, va_list arg)
 {
-	int	i;
-	int	count;
+	if (specific == 'c')
+		return (ft_print_char(va_arg(arg, int)));
+	else if (specific == 's')
+		return (ft_print_str(va_arg(arg, char *)));
+	else if (specific == 'p')
+		return (ft_print_ptr(va_arg(arg, void *)));
+	else if (specific == 'd' || specific == 'i')
+		return (ft_print_nbr(va_arg(arg, int)));
+	else if (specific == 'u')
+		return (ft_print_unbr(va_arg(arg, unsigned int)));
+	else if (specific == 'x')
+		return (ft_print_hex(va_arg(arg, unsigned int), 0));
+	else if (specific == 'X')
+		return (ft_print_hex(va_arg(arg, unsigned int), 1));
+	else if (specific == '%')
+		return (ft_print_char('%'));
+	return (0);
+}
 
+int	ft_printf(const char *format, ...)
+{
+	va_list	arg;
+	int		count;
+	int		i;
+
+	va_start(arg, format);
 	i = 0;
 	count = 0;
 	while (format[i])
@@ -31,16 +54,6 @@ int	ft_vprintf(const char *format, va_list arg)
 		if (format[i] != '\0')
 			i++;
 	}
-	return (count);
-}
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	arg;
-	int		count;
-
-	va_start(arg, format);
-	count = ft_vprintf(format, arg);
 	va_end(arg);
 	return (count);
 }

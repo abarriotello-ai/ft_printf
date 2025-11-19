@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:21:40 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/18 16:42:45 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/11/19 02:26:45 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 # include "libft.h"
 
 int	ft_printf(const char *format, ...);
-
-/* motor */
-int	ft_vprintf(const char *format, va_list arg);
-int	ft_dispatch(char specific, va_list arg);
 
 /* printers */
 int	ft_print_char(int c);							// %c
