@@ -1,89 +1,100 @@
-══════════════════════════════════════════════  
-🔵 **ft_printf**  
-_Reimplementación de la función `printf` en C — Proyecto 42_  
-══════════════════════════════════════════════  
+# ft_printf – 42 Project  
+A custom recreation of the C standard printf function.
 
+---
 
-📝 **Descripción del proyecto**  
-`ft_printf` es una implementación personalizada de la función estándar `printf`.  
-El objetivo es comprender cómo funciona internamente una función capaz de:
+# 📌 Table of Contents
+- [📖 Introduction](#-introduction)
+- [📁 Repository Structure](#-repository-structure)
+- [⚙️ Compilation](#️-compilation)
+- [🧰 Usage](#-usage)
+- [🔧 Supported Conversions](#-supported-conversions)
+- [🌿 Bonus Features](#-bonus-features)
+- [✅ Summary](#-summary)
 
-- Interpretar una cadena de formato  
-- Gestionar argumentos variables (`va_list`)  
-- Convertir valores a texto según su tipo  
-- Escribir la salida carácter a carácter  
-- Devolver el número total de caracteres impresos  
+---
 
-El proyecto incluye también un **tester integrado** (`main_tester.c`) que compara la salida y el valor de retorno con la función original `printf`, permitiendo validar el comportamiento de forma precisa.
+# 📖 Introduction
 
+The **ft_printf** project challenges you to recreate one of C’s most iconic and useful functions:  
+`printf()`.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
-🔧 **Cómo funciona internamente `printf`**  
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+Its purpose is to make you work with **variadic functions**, formatting logic, and robust code design.  
+The project PDF explains (page 1):  
+> *“You will reimplement printf(). You will learn to use a variable number of arguments.”*
 
-`printf` procesa la cadena de formato e identifica elementos especiales que empiezan por `%`.  
-Cada especificador determina cómo debe interpretarse el siguiente argumento.
+Once completed, `ft_printf` can be merged into your libft to use it in future 42 projects.
 
-Flujo simplificado del funcionamiento:
+---
 
-1. Recorrer la cadena de formato  
-2. Detectar un `%`  
-3. Leer el especificador correspondiente  
-4. Obtener el siguiente argumento (`va_arg`)  
-5. Convertirlo a texto  
-6. Imprimirlo y sumarlo al contador de caracteres  
+# 📁 Repository Structure
 
-Ejemplo conceptual:  
 ```
-"El número es %d"  →  detecta %d  → obtiene un int  → lo convierte  → imprime "42"
+ft_printf/
+ ├── Makefile
+ ├── ft_printf.h
+ ├── ft_printf.c
+ ├── utils/*.c
+ ├── utils/*.h
+ └── libftprintf.a   (generated after compilation)
 ```
 
+The PDF states:
+- The resulting library must be named **libftprintf.a** (page 5)
+- Required Makefile rules: `NAME`, `all`, `clean`, `fclean`, `re` (page 4)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
-📌 **Especificadores soportados**  
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+---
 
-| Especificador | Función |
-|--------------|---------|
-| `%c` | Carácter |
-| `%s` | Cadena |
-| `%p` | Dirección de memoria |
-| `%d` / `%i` | Entero con signo |
-| `%u` | Entero sin signo |
-| `%x` | Hexadecimal (minúsculas) |
-| `%X` | Hexadecimal (mayúsculas) |
-| `%%` | Porcentaje literal |
+# ⚙️ Compilation
 
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
-🚀 **Ejemplo de uso**  
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
-
-Código:
+```bash
+make          # compile mandatory part
+make clean    # remove object files
+make fclean   # remove objects + library
+make re       # full rebuild
 ```
+
+The Makefile **must not relink** and must use these flags:
+```
+-Wall -Wextra -Werror
+```
+
+---
+
+# 🧰 Usage
+
+Include the header:
+
+```c
 #include "ft_printf.h"
-
-int main(void)
-{
-    ft_printf("Usuario: %s | Número: %d | Hex: %x\n", "Ana", 42, 42);
-    return 0;
-}
 ```
 
-Salida esperada:
+Compile normally:
+
+```bash
+cc main.c -L./ft_printf -lftprintf -I./ft_printf -o program
 ```
-Usuario: Ana | Número: 42 | Hex: 2a
+
+Use it like printf:
+
+```c
+ft_printf("Hello %s, number: %d", "world", 42);
 ```
 
+---
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
-⚙️ **Compilación**  
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+# 🔧 Supported Conversions
 
-Comandos disponibles del Makefile:
+You must implement the following conversions (page 6):
 
-- `make` → Compila la librería `libftprintf.a`  
-- `make clean` → Elimina objetos  
-- `make fclean` → Limpieza completa  
-- `make re` → Recompilación total  
-
+| Specifier | Meaning |
+|----------|---------|
+| `%c` | Single character |
+| `%s` | String |
+| `%p` | Pointer printed in hexadecimal |
+| `%d` | Decimal integer |
+| `%i` | Integer (same as `%d`) |
+| `%u` | Unsigned decimal integer |
+| `%x` | Hexadecimal lowercase |
+| `%X` | Hexadecimal uppercase |
+| `%%` | Literal % symbol |
