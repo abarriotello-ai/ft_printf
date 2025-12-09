@@ -1,3 +1,5 @@
+[ft_printf.pdf](https://github.com/user-attachments/files/24056796/ft_printf.pdf)
+
 # ft_printf – 42 Project  
 A custom recreation of the C standard printf function.
 
@@ -9,8 +11,6 @@ A custom recreation of the C standard printf function.
 - [⚙️ Compilation](#️-compilation)
 - [🧰 Usage](#-usage)
 - [🔧 Supported Conversions](#-supported-conversions)
-- [🌿 Bonus Features](#-bonus-features)
-- [✅ Summary](#-summary)
 
 ---
 
