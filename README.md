@@ -7,6 +7,9 @@ This project consists of recreating the printf function from the C standard libr
 Instructions
 
 Compilation:
+
+MAKEFILE:
+
 	make - Compiles the project and generates the static library libftprintf.a.
 
 	make clean - Removes all object files generated during compilation.
