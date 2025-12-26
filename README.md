@@ -1,100 +1,37 @@
-[ft_printf.pdf](https://github.com/user-attachments/files/24056796/ft_printf.pdf)
+*This project was created as part of the 42 curriculum by abarrio.*
 
-# ft_printf – 42 Project  
-A custom recreation of the C standard printf function.
+Description
 
----
+This project consists of recreating the printf function from the C standard library. The result is a static library called libftprintf.a that contains the function ft_printf. The main goal is to learn how variadic functions work and how to structure a clean and modular project.
 
-# 📌 Table of Contents
-- [📖 Introduction](#-introduction)
-- [📁 Repository Structure](#-repository-structure)
-- [⚙️ Compilation](#️-compilation)
-- [🧰 Usage](#-usage)
-- [🔧 Supported Conversions](#-supported-conversions)
+Instructions
 
----
+Compilation:
+	make - Compiles the project and generates the static library libftprintf.a.
 
-# 📖 Introduction
+	make clean - Removes all object files generated during compilation.
 
-The **ft_printf** project challenges you to recreate one of C’s most iconic and useful functions:  
-`printf()`.
+	make fclean - Removes object files and the libftprintf.a library.
 
-Its purpose is to make you work with **variadic functions**, formatting logic, and robust code design.  
-The project PDF explains (page 1):  
-> *“You will reimplement printf(). You will learn to use a variable number of arguments.”*
+	make re - Runs fclean and then recompiles the project from scratch.
 
-Once completed, `ft_printf` can be merged into your libft to use it in future 42 projects.
+cc -Wall -Wextra -Werror -I. -Ilibft libftprintf.a libft/libft.a
 
----
+Usage:
+ft_printf works similarly to printf and supports the following conversions:
+c, s, p, d, i, u, x, X and %.
 
-# 📁 Repository Structure
+Algorithm
 
-```
-ft_printf/
- ├── Makefile
- ├── ft_printf.h
- ├── ft_printf.c
- ├── utils/*.c
- ├── utils/*.h
- └── libftprintf.a   (generated after compilation)
-```
+The function goes through the format string character by character. When a '%' is found, the conversion type is identified, the argument is retrieved using va_arg, and the corresponding function is called to print it. Each conversion is handled separately to keep the code organized and easy to extend.
 
-The PDF states:
-- The resulting library must be named **libftprintf.a** (page 5)
-- Required Makefile rules: `NAME`, `all`, `clean`, `fclean`, `re` (page 4)
+Resources
 
----
+- printf(3) manual
+- stdarg.h documentation
+- 42 ft_printf subject
+- GitHub repositories from other 42 students to compare structures and ideas
 
-# ⚙️ Compilation
+Use of AI
 
-```bash
-make          # compile mandatory part
-make clean    # remove object files
-make fclean   # remove objects + library
-make re       # full rebuild
-```
-
-The Makefile **must not relink** and must use these flags:
-```
--Wall -Wextra -Werror
-```
-
----
-
-# 🧰 Usage
-
-Include the header:
-
-```c
-#include "ft_printf.h"
-```
-
-Compile normally:
-
-```bash
-cc main.c -L./ft_printf -lftprintf -I./ft_printf -o program
-```
-
-Use it like printf:
-
-```c
-ft_printf("Hello %s, number: %d", "world", 42);
-```
-
----
-
-# 🔧 Supported Conversions
-
-You must implement the following conversions (page 6):
-
-| Specifier | Meaning |
-|----------|---------|
-| `%c` | Single character |
-| `%s` | String |
-| `%p` | Pointer printed in hexadecimal |
-| `%d` | Decimal integer |
-| `%i` | Integer (same as `%d`) |
-| `%u` | Unsigned decimal integer |
-| `%x` | Hexadecimal lowercase |
-| `%X` | Hexadecimal uppercase |
-| `%%` | Literal % symbol |
+AI was mainly used as a support tool to clarify specific doubts about variadic functions, format parsing, and design decisions. GitHub was used to compare different approaches and understand common patterns.
