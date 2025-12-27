@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_tester.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:18:32 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/26 17:56:14 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/12/27 18:34:56 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* Después de ejecutar el makefile para crear los archivos .a
 se debe ejecutar el siguiente comando para compilar el tester:
-	cc -Wall -Wextra -Werror -I. -Ilibft \
-	main_tester.c libftprintf.a libft/libft.a -o tester */
+
+       cc -I. -Ilibft main.c libftprintf.a libft/libft.a -o tester */
 
 #include <stdio.h>
 #include <limits.h>
