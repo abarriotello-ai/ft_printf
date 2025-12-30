@@ -6,14 +6,14 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:18:32 by abarrio           #+#    #+#             */
-/*   Updated: 2025/12/30 13:17:13 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/12/30 21:21:43 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
 #include <stdint.h>
-#include "ft_printf.h"
+#include "libraries/ft_printf.h"
 
 int    main(void)
 {
