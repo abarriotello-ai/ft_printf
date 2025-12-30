@@ -28,28 +28,26 @@ OBJS        := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(LIBFT_A):
-	$(MAKE) -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(LIBFT_A) $(OBJS)
-	cp $(LIBFT_A) $(NAME)
-	$(AR) $(NAME) $(OBJS)
+	@cp $(LIBFT_A) $(NAME)
+	@$(AR) $(NAME) $(OBJS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-	$(MAKE) -C $(LIBFT_DIR) clean
-	$(RM) $(OBJ_DIR)
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(RM) $(NAME)
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(RM) $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
-.SILENT:
