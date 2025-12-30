@@ -18,7 +18,7 @@ MAKEFILE:
 
 	make re - Runs fclean and then recompiles the project from scratch.
 
-cc -Wall -Wextra -Werror -I. -Ilibft libftprintf.a libft/libft.a
+cc -Wall -Wextra -Werror libftprintf.a main.c -o tester
 
 Usage:
 ft_printf works similarly to printf and supports the following conversions:
