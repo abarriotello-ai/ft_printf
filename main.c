@@ -6,21 +6,16 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:18:32 by abarrio           #+#    #+#             */
-/*   Updated: 2025/12/27 18:34:56 by abarrio          ###   ########.fr       */
+/*   Updated: 2025/12/30 13:17:13 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* Después de ejecutar el makefile para crear los archivos .a
-se debe ejecutar el siguiente comando para compilar el tester:
-
-       cc -I. -Ilibft main.c libftprintf.a libft/libft.a -o tester */
 
 #include <stdio.h>
 #include <limits.h>
 #include <stdint.h>
 #include "ft_printf.h"
 
-int main(void)
+int    main(void)
 {
     int           n = 42;
     int           neg = -42;
