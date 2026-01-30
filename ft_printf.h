@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 17:21:40 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/19 02:26:45 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/01/30 12:09:37 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 int	ft_printf(const char *format, ...);
 
