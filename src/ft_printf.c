@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:41:50 by abarrio           #+#    #+#             */
-/*   Updated: 2025/11/19 02:26:56 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/02 19:41:53 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	int		i;
 
+	if (!format)
+		return (-1);
 	va_start(arg, format);
 	i = 0;
 	count = 0;

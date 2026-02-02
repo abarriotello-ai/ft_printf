@@ -6,7 +6,7 @@
 /*   By: abarrio <abarrio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 17:18:32 by abarrio           #+#    #+#             */
-/*   Updated: 2025/12/30 13:17:13 by abarrio          ###   ########.fr       */
+/*   Updated: 2026/02/02 19:49:37 by abarrio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ int    main(void)
     int           n = 42;
     int           neg = -42;
     unsigned int  u = 42u;
+
+    /* ================= NULL ================= */
+       int i = printf(NULL);
+       int j = ft_printf(NULL);
+
+       printf("=== TEST NULL ===\n");
+       printf("printf: %d\n", i);
+       ft_printf("ft_printf: %d\n", j);
 
     /* ================== %c ================== */
     printf("=== TEST %%c ===\n");
