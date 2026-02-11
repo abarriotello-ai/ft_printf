@@ -3,6 +3,7 @@ CC      := cc
 CFLAGS  := -Wall -Wextra -Werror -I.
 AR      := ar rcs
 RM      := rm -f
+INCLUDES:= -I. -I../includes/
 
 SRCS := \
 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
@@ -43,7 +44,7 @@ fclean: clean
 	$(RM) $(NAME)
 
 # --- Compilación objetos ---
-%.o: %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 .PHONY: all bonus clean fclean re
